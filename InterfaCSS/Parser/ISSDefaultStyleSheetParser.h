@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ISSDefaultStyleSheetParser : NSObject <ISSStyleSheetParser>
 
++ (void)setDefaultBundle:(NSBundle *)bundle;
+
 @end
 
 

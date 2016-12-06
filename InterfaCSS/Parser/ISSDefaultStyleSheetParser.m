@@ -172,6 +172,11 @@ static NSObject* ISSLayoutAttributeSizeToFitFlag;
     ISSLayoutAttributeSizeToFitFlag = [[NSObject alloc] init];
 }
 
+static NSBundle* defaultBundle = nil;
++ (void)setDefaultBundle:(NSBundle *)bundle {
+    defaultBundle = bundle;
+}
+
 #pragma mark - Enum property parsing
 
 - (id) enumValueForString:(NSString*)enumString inProperty:(ISSPropertyDefinition*)p {
@@ -583,7 +588,7 @@ static NSObject* ISSLayoutAttributeSizeToFitFlag;
 #pragma mark - Methods existing mainly for testing purposes
 
 - (UIImage*) imageNamed:(NSString*)name { // For testing purposes...
-    return [UIImage imageNamed:name];
+    return [UIImage imageNamed:name inBundle:defaultBundle compatibleWithTraitCollection:nil];
 }
 
 - (NSString*) localizedStringWithKey:(NSString*)key {
